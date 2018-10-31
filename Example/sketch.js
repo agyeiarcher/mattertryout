@@ -1,3 +1,7 @@
+Matter.use(
+  'matter-attractors' // PLUGIN_NAME
+);
+
 var Engine = Matter.Engine,
     // Render = Matter.Render,
     World = Matter.World,
@@ -8,6 +12,8 @@ var Engine = Matter.Engine,
 var engine;
 var world;
 var boxes =[];
+
+Matter.Plugin.use('matter-attractors');
 
 function setup() {
   // put setup code here

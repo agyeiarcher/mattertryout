@@ -2,6 +2,16 @@ function Box(x, y, w, h) {
   var options = {
     friction: 0.0001,
     restitution: 0.6,
+    plugin: {
+    attractors: [
+      function(bodyA, bodyB) {
+        return {
+          x: (bodyA.position.x - bodyB.position.x) * 1e-6,
+          y: (bodyA.position.y - bodyB.position.y) * 1e-6,
+          };
+        }
+      ]
+    },
   }
   this.x = x;
   this.y = y;
