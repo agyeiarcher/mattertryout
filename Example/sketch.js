@@ -24,20 +24,19 @@ var ground;
 var topwall;
 
 function cascade(){
-  if (frameCount > 5) {
-    if (gravityValue > -0.4) {
+  if (0<frameCount < 59) {
+    if (gravityValue > 0) {
       if (frameCount % 5 == 0) {
-        gravityValue = gravityValue-0.2
+        gravityValue = gravityValue-0.5
       }
     }
   }
-  if (frameCount >29 ) {
-    gravityValue = -0.0000001
+  if (frameCount >59 ) {
+    gravityValue = -0.0005;
   }
 
   return(gravityValue)
 }
-
 
 function setup() {
   // put setup code here
@@ -50,7 +49,11 @@ function setup() {
 
   var option = {
     isStatic: true
-  }
+  };
+
+  for (i = 0; i<100; i++){
+      boxes.push(new Box(random(198, 202), random(0,height/2,), 15, random(0.5, 1.5)));
+    };
 
   ground = new Floor(width/2, height, width, 40);
   walleft =  new Floor(0, height/2, 10, height);
@@ -60,14 +63,15 @@ function setup() {
 }
 
 function draw() {
+  frameRate(60);
   Engine.update(engine);
   background(0);
   cascade();
   this.world.gravity.y=gravityValue;
 
-  if (frameCount<120) {
-      boxes.push(new Box(random(198, 202), random(0,height/2,), 15, 1));
-    };
+  // if (frameCount<120) {
+  //     boxes.push(new Box(random(198, 202), random(0,height/2,), 15, 1));
+  //   };
 
   // console.log(counter)
   for (var i=0; i < boxes.length; i++) {
@@ -76,8 +80,10 @@ function draw() {
   ground.show();
   walleft.show();
   wallright.show();
-  if (frameCount >30) {
-    noFill();
+  // if (frameCount >30) {
+  //   noFill();
+  // if (boxes.length<300){
+  //   boxes.push(new Box(random(198, 202), random(0,height/2,), 10, 1));
+  // }
   topwall.show();
-  }
 }

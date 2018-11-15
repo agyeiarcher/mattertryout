@@ -1,16 +1,22 @@
-sea=["S", "A", "N", "A", "M"]
+sea=["H", "E", "L", "L", "O"]
 
 var timeScaleTarget = 1;
+
+const btn = document.querySelector('button'),
+  chunks = [];
 
 
 function Box(x, y, r, massval) {
   let seachoice = random(sea);
 
   var options = {
-    timeScale: 1,
-    frictionAir:0.00001,
+    // timeScale: 1,
+    frictionAir:0.01,
     friction: 0.0001,
-    restitution: 0.5,
+    restitution: 0.9,
+    density:massval,
+    // density:10,
+    // mass:20
   //   plugin: {
   //   attractors: [
   //     function(bodyA, bodyB) {
@@ -37,10 +43,10 @@ function Box(x, y, r, massval) {
     push();
     translate(position.x, position.y);
     rotate(angle);
-    textSize(12);
+    textSize(20);
     rectMode(CENTER);
     fill(255);
-    text(seachoice,0,0, 10, 10);
+    text(seachoice,0,0, 20, 20);
     pop();
   };
 

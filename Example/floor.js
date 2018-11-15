@@ -1,8 +1,9 @@
 function Floor(x, y, w, h) {
   var options = {
     isStatic: true,
-    restitution:0.5,
-    friction:0.5
+    restitution:1,
+    friction:0,
+    density:20,
   };
 
   this.body = Bodies.rectangle(x, y, w, h, options);
