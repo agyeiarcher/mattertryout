@@ -14,19 +14,19 @@ function Box(x, y, r, massval) {
     frictionAir:0.01,
     friction: 0.0001,
     restitution: 0.9,
-    density:massval,
-    // density:10,
+    mass:0,
+    density:0.01,
     // mass:20
-  //   plugin: {
-  //   attractors: [
-  //     function(bodyA, bodyB) {
-  //       return {
-  //         x: (bodyA.position.x - bodyB.position.x) * 1e-6,
-  //         y: (bodyA.position.y - bodyB.position.y) * 1e-6,
-  //         };
-  //       }
-  //     ]
-  //   },
+    // plugin: {
+    // attractors: [
+    //   function(bodyA, bodyB) {
+    //     return {
+    //       x: (bodyA.position.x - bodyB.position.x) * 0.005* 1e-6,
+    //       y: (bodyA.position.y - bodyB.position.y) * 0.005* 1e-6,
+    //       };
+    //     }
+    //   ]
+    // },
   }
 
   this.x = x;
