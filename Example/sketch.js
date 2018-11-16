@@ -24,15 +24,15 @@ var ground;
 var topwall;
 
 function cascade(){
-  if (0<frameCount < 59) {
+  if (0<frameCount < 90) {
     if (gravityValue > 0) {
       if (frameCount % 5 == 0) {
         gravityValue = gravityValue-0.5
       }
     }
   }
-  if (frameCount >59 ) {
-    gravityValue = -0.0005;
+  if (frameCount >60 ) {
+    gravityValue = -0.0001;
   }
 
   return(gravityValue)
@@ -40,7 +40,7 @@ function cascade(){
 
 function setup() {
   // put setup code here
-  createCanvas(400, 400);
+  createCanvas(900, 600);
   engine = Engine.create();
   runner =  Runner.create();
   Runner.run(runner, engine);
@@ -51,14 +51,13 @@ function setup() {
     isStatic: true
   };
 
-  for (i = 0; i<100; i++){
-      boxes.push(new Box(random(198, 202), random(0,height/2,), 15, random(0.5, 1.5)));
+  for (i = 0; i<220; i++){
+      boxes.push(new Box(random(452, 448), random(0,-100), 20, random(0.5, 1.5)));
     };
 
   ground = new Floor(width/2, height, width, 40);
   walleft =  new Floor(0, height/2, 10, height);
   wallright =  new Floor(width, height/2, 10, height);
-  topwall =  new Floor(width/2, 0, width, 10);
 
 }
 
@@ -80,10 +79,12 @@ function draw() {
   ground.show();
   walleft.show();
   wallright.show();
-  // if (frameCount >30) {
-  //   noFill();
+  if (frameCount >30) {
+    noFill();
   // if (boxes.length<300){
   //   boxes.push(new Box(random(198, 202), random(0,height/2,), 10, 1));
   // }
+  topwall =  new Floor(width/2, 0, width, 10);
   topwall.show();
+}
 }
